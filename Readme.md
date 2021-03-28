@@ -256,7 +256,7 @@ Même exercice que le précédent mais, cette fois, en déclenchant une mesure �
     <tbody>
         <tr>
             <td>
-                Réaliser un détecteur de proximité avec le transducteur HC-SR04. Le détecteur doit permettre d'afficher sur la rampe de LEDs une mesure graduée de la proximité d'un obstacle se trouvant dans l'intervalle <strong>[4,20] cm</strong>. Plus l'obstacle est proche et plus on allume de LEDs. Inversement, plus l'obstacle est éloigné et moins on allume de LEDs.
+                Réaliser un détecteur de proximité avec le transducteur HC-SR04. Le détecteur doit permettre d'afficher sur la rampe de LEDs une mesure graduée de la proximité d'un obstacle se trouvant dans l'intervalle <strong>[4,20] cm</strong>. Le nombre de LEDs allumées doit être inversement proportionnel à la distance de l'obstacle.
             </td>
             <td width="50%"><img src="assets/demo-960x408-64c-25fps.gif" alt="Démonstration"></td>
         </tr>
