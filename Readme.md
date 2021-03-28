@@ -232,7 +232,7 @@ Même exercice que le précédent mais, cette fois, cherchez à éliminer l'effe
 
 ### 7. Mesures périodiques avec le transducteur HC-SR04
 
-Lancer une séquence de mesures de distances à l'aide du transducteur ultrasonique. Les mesures doivent être effectuées périodiquement à une fréquence de **0.1 Hz** (une mesure toutes les **100 ms**). Les distances mesurées devront être affichées sur le moniteur série, au fil de l'eau.
+Lancer une séquence de mesures de distances à l'aide du transducteur ultrasonique. Les mesures doivent être effectuées périodiquement à une fréquence de **10 Hz** (une mesure toutes les **100 ms**). Les distances mesurées devront être affichées sur le moniteur série, au fil de l'eau.
 
 Pour cet exercice, vous devrez utiliser le vecteur d'interruption **INT0** qui surveille la broche de lecture **D2** reliée à la broche **ECHO** du HC-SR04. Chaque mesure est initiée en maintenant la broche **D4** (qui est reliée à la broche **TRIG** du HC-SR04) au niveau **HIGH** pendant **10 µs**.
 
