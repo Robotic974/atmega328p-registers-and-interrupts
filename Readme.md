@@ -146,14 +146,15 @@ src
 ├── 02-switch.cpp
 ├── 03-switch-int-v1.cpp
 ├── 04-switch-int-v2.cpp
-├── 05-binary-counter-v1.cpp
-├── 06-binary-counter-v2.cpp
-├── 07-hc-sr04.cpp
+├── 05-switch-debouncing.cpp
+├── 06-binary-counter-v1.cpp
+├── 07-binary-counter-v2.cpp
 ├── 08-hc-sr04-button.cpp
-└── 09-proximity-sensor.cpp
+├── 09-hc-sr04.cpp
+└── 10-proximity-sensor.cpp
 ```
 
-Chaque fichier doit être compilé en excluant tous les autres avec la directive `src_filter` dans le fichier de configuration `platformio.ini`. Par exemple, pour compiler la solution de l'exercice n°9 :
+Chaque fichier doit être compilé en excluant tous les autres avec la directive `src_filter` dans le fichier de configuration `platformio.ini`. Par exemple, pour compiler la solution de l'exercice n°10 :
 
 ```ini
 ; --------------------------------------------------------------------------------
@@ -167,7 +168,7 @@ platform      = atmelavr
 board         = nanoatmega328new
 framework     = arduino
 monitor_speed = 9600
-src_filter    = -<*> +<09-proximity-sensor.cpp>
+src_filter    = -<*> +<10-proximity-sensor.cpp>
 ```
 
 
@@ -200,7 +201,7 @@ digitalWrite(12, digitalRead(3));
 
 Allumer puis éteindre alternativement la LED connectée à la broche **D12** à chaque pression sur le bouton poussoir. On cherchera ici à détecter les pressions sur le bouton par le déclenchement d'une interruption armée par la fonction `attachInterrupt()`.
 
-*Remarque : on ne cherchera pas ici à supprimer l'effet rebond.*
+*Remarque : on ne cherchera pas ici à éliminer l'effet rebond.*
 
 ***Solution** : [03-switch-int-v1.cpp][s03]*
 
@@ -209,28 +210,35 @@ Allumer puis éteindre alternativement la LED connectée à la broche **D12** à
 
 Même exercice que le précédent mais, cette fois, sans utiliser la fonction `attachInterrupt()`. On lui préfèrera l'usage direct du vecteur d'interruption `INT1`, activé par la broche **D3**.
 
-*Remarque : on ne cherchera pas ici à supprimer l'effet rebond.*
+*Remarque : on ne cherchera pas ici à éliminer l'effet rebond.*
 
 ***Solution** : [04-switch-int-v2.cpp][s04]*
 
 
-### 5. Affichage d'un compteur binaire sur 8 LEDs incrémenté par un bouton poussoir
+### 5. Commande d'une LED à l'aide d'un bouton - neutralisation de l'effet rebond
+
+Même exercice que le précédent mais, cette fois, en neutralisant l'effet rebond.
+
+***Solution** : [05-switch-debouncing.cpp][s05]*
+
+
+### 6. Affichage d'un compteur binaire sur 8 LEDs incrémenté par un bouton poussoir
 
 Incrémenter un compteur entier codé sur 8 bits à chaque pression sur le bouton poussoir, et afficher sa valeur binaire sur l'octet représenté par les 8 LEDs.
 
-*Remarque : on ne cherchera pas ici à supprimer l'effet rebond.*
+*Remarque : on ne cherchera pas ici à éliminer l'effet rebond.*
 
-***Solution** : [05-binary-counter-v1.cpp][s05]*
-
-
-### 6. Compteur binaire avec gestion des rebonds
-
-Même exercice que le précédent mais, cette fois, cherchez à éliminer l'effet rebond.
-
-***Solution** : [06-binary-counter-v2.cpp][s06]*
+***Solution** : [06-binary-counter-v1.cpp][s06]*
 
 
-### 7. Mesures périodiques avec le transducteur HC-SR04
+### 7. Compteur binaire avec neutralisation de l'effet rebond sur le bouton
+
+Même exercice que le précédent mais, cette fois, cherchez à neutraliser l'effet rebond.
+
+***Solution** : [07-binary-counter-v2.cpp][s07]*
+
+
+### 8. Mesures périodiques avec le transducteur HC-SR04
 
 Lancer une séquence de mesures de distances à l'aide du transducteur ultrasonique. Les mesures doivent être effectuées périodiquement à une fréquence de **10 Hz** (une mesure toutes les **100 ms**). Les distances mesurées devront être affichées sur le moniteur série, au fil de l'eau.
 
@@ -238,19 +246,19 @@ Pour cet exercice, vous devrez utiliser le vecteur d'interruption **INT0** qui s
 
 N'oubliez pas d'[établir la formule de conversion durée => distance][toolref] à l'aide du calculateur que j'ai mis à votre disposition.
 
-***Solution** : [07-hc-sr04.cpp][s07]*
+***Solution** : [08-hc-sr04.cpp][s08]*
 
 
-### 8. Mesure de distance commandée par un bouton avec le transducteur HC-SR04
+### 9. Mesure de distance commandée par un bouton avec le transducteur HC-SR04
 
 Même exercice que le précédent mais, cette fois, en déclenchant une mesure à chaque pression sur le bouton poussoir.
 
-*Remarque : on ne cherchera pas ici à supprimer l'effet rebond.*
+*Remarque : on ne cherchera pas ici à éliminer l'effet rebond.*
 
-***Solution** : [08-hc-sr04-button.cpp][s08]*
+***Solution** : [09-hc-sr04-button.cpp][s09]*
 
 
-### 9. Détecteur de proximité
+### 10. Détecteur de proximité
 
 <table>
     <tbody>
@@ -263,7 +271,7 @@ Même exercice que le précédent mais, cette fois, en déclenchant une mesure �
     </tbody>
 </table>
 
-***Solution** : [09-proximity-sensor.cpp][s09]*
+***Solution** : [10-proximity-sensor.cpp][s10]*
 
 
 [chaser]:      https://github.com/Robotic974/led-chaser-with-button
@@ -279,8 +287,9 @@ Même exercice que le précédent mais, cette fois, en déclenchant une mesure �
 [s02]:         src/02-switch.cpp
 [s03]:         src/03-switch-int-v1.cpp
 [s04]:         src/04-switch-int-v2.cpp
-[s05]:         src/05-binary-counter-v1.cpp
-[s06]:         src/06-binary-counter-v2.cpp
-[s07]:         src/07-hc-sr04.cpp
-[s08]:         src/08-hc-sr04-button.cpp
-[s09]:         src/09-proximity-sensor.cpp
+[s05]:         src/05-switch-debouncing.cpp
+[s06]:         src/06-binary-counter-v1.cpp
+[s07]:         src/07-binary-counter-v2.cpp
+[s08]:         src/08-hc-sr04.cpp
+[s09]:         src/09-hc-sr04-button.cpp
+[s10]:         src/10-proximity-sensor.cpp
