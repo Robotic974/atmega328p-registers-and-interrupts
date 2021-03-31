@@ -40,4 +40,7 @@ void setup() {
     attachInterrupt(digitalPinToInterrupt(3), toggle, RISING);
 }
 
+/**
+ * @brief Boucle de contrôle principale
+ */
 void loop() {}
