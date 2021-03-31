@@ -1,5 +1,8 @@
 /**
  * --------------------------------------------------------------------------------
+ * Atelier de programmation Robotic 974
+ * © 2021 Stéphane Calderoni
+ * --------------------------------------------------------------------------------
  * Registres internes et interruptions de l'ATmega328P
  * --------------------------------------------------------------------------------
  * Commande d'une LED à l'aide d'un bouton par interruption
@@ -18,15 +21,23 @@
 #include <Arduino.h>
 
 /**
- * @brief Initialisation
+ * @brief Routine d'interruption
  */
-void setup() {
-    
+void toggle() {
+
+    PORTB ^= 1 << PB4; // Bascule du bit PB4
+
 }
 
 /**
- * @brief Boucle de contrôle principale
+ * @brief Initialisation
  */
-void loop() {
-    
+void setup() {
+
+    DDRB |=   1 << PB4;
+    DDRD &= ~(1 << PD3);
+
+    attachInterrupt(digitalPinToInterrupt(3), toggle, RISING);
 }
+
+void loop() {}
