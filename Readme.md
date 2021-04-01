@@ -149,8 +149,8 @@ src
 ├── 05-switch-debouncing.cpp
 ├── 06-binary-counter-v1.cpp
 ├── 07-binary-counter-v2.cpp
-├── 08-hc-sr04-button.cpp
-├── 09-hc-sr04.cpp
+├── 08-hc-sr04.cpp
+├── 09-hc-sr04-button.cpp
 └── 10-proximity-sensor.cpp
 ```
 
